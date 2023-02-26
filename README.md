@@ -28,15 +28,19 @@ si hci0 est indiqué bloqué, rfkill unblock 0 résoud le problème (à ajouter 
 2) apairer les clients bt (une seule fois)
 on doit obtenir :
 [SANWU Audio]# paired-devices
+
 Device CC:XX:XX:XX:71:XX [AV] Samsung Soundbar K335 K-Series
+
 Device 18:XX:XX:XX:XX:XX XLeader A8
+
 Device 00:XX:XX:XX:XX:XX SANWU Audio
 
 pour ajouter une enceinte :
-scan on
+
+	scan on
 
 va lister les équipements qui communiquent
-scan off si tout est visible
+	scan off si tout est visible
 
 puis
  trust [adressemac]
@@ -59,13 +63,16 @@ apt install mpv
 télécharger sur le web le paquet mpv-webui pour avoir une interface web
 
 ajouter dans ~/.config/mpv/mpv.conf 
+	
 	scripts-append=~/.config/mpv/scripts/webui
 
 et extraire webui dans le dossier ~/.config/mpv/scripts/webui
 
 
 ensuite il reste à lancer la commande :
+	
 	nohup mpv --script-opts=webui-port=8078 --pause /tmp/listjour.m3u --vo=null --script=~/.config/mpv/scripts/webui/main.lua > /tmp/log_mpv.log &
+
 (incluse dans le script mpvserver.sh à adapter selon les besoins)
 
 lorsqu'il tourne ouvrir la page http://adresseiplocale:8078 dans un navigateur pour consulter mpv lancer les pistes ajuster le volume ...
