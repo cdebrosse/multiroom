@@ -1,0 +1,178 @@
+[
+    {
+        "id": "021ff64de5a9dce9",
+        "type": "ha-button",
+        "z": "767e0a700304cec8",
+        "name": "enceinte_salon",
+        "version": 0,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityConfig": "9ddea3425fbdc6e0",
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "0",
+                "valueType": "num"
+            }
+        ],
+        "x": 93,
+        "y": 90,
+        "wires": [
+            [
+                "3c433601b6552b7c"
+            ]
+        ]
+    },
+    {
+        "id": "c6a1166abda181d7",
+        "type": "ha-button",
+        "z": "767e0a700304cec8",
+        "name": "enceinte_cine",
+        "version": 0,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityConfig": "0c7f04c5cb640e7a",
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "3c433601b6552b7c"
+            ]
+        ]
+    },
+    {
+        "id": "2b7fbbc1f9ddeb79",
+        "type": "ha-button",
+        "z": "767e0a700304cec8",
+        "name": "enceinte_xlleader",
+        "version": 0,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityConfig": "5e9b79162d8e14f1",
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "3c433601b6552b7c"
+            ]
+        ]
+    },
+    {
+        "id": "3c433601b6552b7c",
+        "type": "exec",
+        "z": "767e0a700304cec8",
+        "command": "~/.node-red/connect.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "connect",
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "868f32740b36104e",
+                "f4cf0dc1ef4091d9"
+            ],
+            [
+                "67e8cfdc1fba1d96"
+            ],
+            [
+                "868f32740b36104e"
+            ]
+        ],
+        "inputLabels": [
+            "msg.payload"
+        ],
+        "outputLabels": [
+            "ok",
+            "ko",
+            ""
+        ]
+    },
+    {
+        "id": "9ddea3425fbdc6e0",
+        "type": "ha-entity-config",
+        "server": "555511918e72e1c9",
+        "name": "enc_salon",
+        "version": 4,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "enc_salon"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "entityType": "button"
+    },
+    {
+        "id": "0c7f04c5cb640e7a",
+        "type": "ha-entity-config",
+        "server": "555511918e72e1c9",
+        "name": "enc_cine",
+        "version": 4,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "enc_cine"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "entityType": "button"
+    },
+    {
+        "id": "5e9b79162d8e14f1",
+        "type": "ha-entity-config",
+        "server": "555511918e72e1c9",
+        "name": "enc_xlleader",
+        "version": 4,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "enc_xlleader"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "entityType": "button"
+    }
+]
