@@ -1,0 +1,4 @@
+03 06 * * * find /srv/musique -type f ! -wholename "*podcasts*" | grep -P 'mp3$|flac$' | shuf -n 30 > /tmp/listjour.m3u
+#                emplacement musique                                      extensions     nb de titres     fichier playlist
+# à 6:03chaque jour rafraîchi la playlist à adapter ;)
+# ligne à ajouter dans crontab -e de l'utilisateur courant 
