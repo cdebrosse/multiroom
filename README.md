@@ -8,10 +8,11 @@ sur une carte nom pré-équipée de sortie audio, il est possible d'ajouter un m
   - installation pulseaudio opérationnelle :
 dans alsamixer la carte doit apparaitre par f6 la selectionner comme carte par défaut
 
-  - bluetooth : 
+- bluetooth : 
  bluethoothctl
 
 1) configurer le serveur :
+	
 % bluetoothctl 
 Agent registered
 [CHG] Controller 00:1A:XX:XX:XX:XX Pairable: yes
@@ -19,13 +20,17 @@ Agent registered
 indique que la clé usb est reconnue et est en écoute.
 
 sinon : passer en root avec rfkill pour vérifier que le port n'est pas bloqué :
-sudo rfkill
+
+	sudo rfkill
+
 ID TYPE      DEVICE     SOFT     HARD
- 0 bluetooth hci0   débloqué débloqué
+
+0 bluetooth hci0   débloqué débloqué
 
 si hci0 est indiqué bloqué, rfkill unblock 0 résoud le problème (à ajouter au script de reboot du serveur)
 
-2) apairer les clients bt (une seule fois)
+2) apairer les clients bt (une seule fois) :
+	
 on doit obtenir :
 [SANWU Audio]# paired-devices
 
@@ -43,22 +48,27 @@ va lister les équipements qui communiquent
 	scan off si tout est visible
 
 puis
- trust [adressemac]
+
+ 	trust [adressemac]
+
 pour faire confiance à un appareil
 
- pair [adressemac] 
+ 	pair [adressemac] 
+
 pour l'associer
 
 et lors de l'utilisation de l'enceinte (à chaque fois) 
- connect [adressemac]
+
+	connect [adressemac]
 
 le prompt de bluetoothctl change pour indiquer entre [] le nom de l'enceinte connectée. 
 à partir de là le son alsa passe sur cette enceinte.
 
-   -mpv comme player via le réseau local :
+- mpv comme player via le réseau local :
 
-1) mpv server lancé sur le serveur peut transmettre la musique sur le réseau
-apt install mpv
+mpv server lancé sur le serveur peut transmettre la musique sur le réseau
+
+	apt install mpv
 
 télécharger sur le web le paquet mpv-webui pour avoir une interface web
 
